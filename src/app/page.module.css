@@ -6,6 +6,9 @@
   color: white;
   width: 100%;
   min-height: 100vh;
+  min-height: -webkit-fill-available;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .contentWrapper {
@@ -15,9 +18,10 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 60px 20px 20px; /* Added 40px to top padding */
+  padding: 60px 20px 20px;
   box-sizing: border-box;
-  min-height: 100%;
+  min-height: 0; /* Fix for flex children */
+  position: relative;
 }
 
 .mainContent {
@@ -25,7 +29,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 70vh; /* Ensure enough space for content */
+  min-height: 0; /* Fix for flex children */
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 .header {

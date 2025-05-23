@@ -1,61 +1,82 @@
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  color: white;
+  width: 100%;
   min-height: 100vh;
-  padding: 100px 20px 20px;
-  font-family: var(--font-geist-sans);
-  position: relative;
-  box-sizing: border-box;
 }
 
-.main {
-  width: 100%;
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  text-align: center;
+  padding: 60px 20px 20px; /* Added 40px to top padding */
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 70vh; /* Ensure enough space for content */
 }
 
 .header {
   text-align: center;
   color: white;
-  padding: 20px 0 10px; /* Reduced bottom padding */
-  margin-bottom: 1rem; /* Reduced from 2rem */
+  padding: 20px 20px 10px;
+  margin: 0 auto 1rem;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* Responsive typography */
 .header h1 {
-  margin: 0;
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
 }
 
 .header h2 {
-  margin: 0;
+  font-size: 1.2rem;
+  margin: 0 0 0.25rem 0;
   font-size: 1.3rem;
   font-weight: 400;
-  margin-bottom: 0.25rem;
 }
 
 .header h3 {
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   font-size: 1rem;
   font-weight: 300;
 }
 
+.header h3:last-child {
+  margin-bottom: 2rem;
+}
+
 .cardContainer {
-  width: 100%;
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+  margin: 0 auto;
   padding: 1rem 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+@media (min-width: 768px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+  }
 }
 
 
@@ -65,8 +86,6 @@
 }
 
 .card {
-  flex: 0 0 auto;
-  width: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,7 +101,6 @@
   min-height: 120px;
   backdrop-filter: blur(10px);
   color: white;
-  margin: 0 0.75rem;
   animation: fadeIn 0.5s ease-out forwards;
   opacity: 0;
   position: relative;
@@ -143,20 +161,19 @@
 }
 
 .bottomLogoContainer {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  padding: 12px 24px;
-  margin: 0;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
+  margin-top: auto;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  line-height: normal;
+  width: fit-content;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .poweredByText {
@@ -178,13 +195,13 @@
 }
 
 .logoContainer {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  padding: 0;
-  margin: 0;
-  line-height: 0; /* Removes any extra space around the image */
+  display: none; /* Hide the floating logo on mobile */
+}
+
+@media (min-width: 768px) {
+  .logoContainer {
+    display: none; /* Keep it hidden on all screens */
+  }
 }
 
 .logo {

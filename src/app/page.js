@@ -17,6 +17,14 @@ export default function Home() {
           {/* Cards */}
           <nav className={styles.cardContainer}>
             <a 
+              href="https://chatgpt.com/g/g-67dee29dd3648191952099c040e3a590-impact-leadership-network-guide"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.card}
+            >
+              Impact Leadership Network
+            </a>
+            <a 
               href="https://chatgpt.com/g/g-6819fbe9c954819192fc91d02c8f301f-cincy-ymca-ost-elc"
               target="_blank"
               rel="noopener noreferrer"
@@ -39,14 +47,6 @@ export default function Home() {
               className={styles.card}
             >
               YMCA Annual Campaign
-            </a>
-            <a 
-              href="https://chatgpt.com/g/g-67dee29dd3648191952099c040e3a590-impact-leadership-network-guide"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.card}
-            >
-              Impact Leadership Network
             </a>
           </nav>
           
